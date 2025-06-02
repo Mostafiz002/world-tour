@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Country.css";
-const Country = ({ country, handleVisitedCountry }) => {
+const Country = (props) => {
+  const { country, handleVisitedCountry } = props; // destructuring the props we got from countries.jsx , this is when we have 7 or more props, when we have less then we can simply type the props name in the function parameter where we currently have props as the parameter.
   const { name, flags, population, area } = country;
 
   const [visited, setVisited] = useState(false);

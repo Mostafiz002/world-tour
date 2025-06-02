@@ -34,6 +34,7 @@ const Countries = () => {
             country={country}
             key={country.cca3}
             handleVisitedCountry={handleVisitedCountry}
+            // here we are passing the handleVisitedCountry function to the Country component, its called prop drilling. but when there is a lot of data to pass, we can use another method like context API or redux
           ></Country>
         ))}
       </div>
