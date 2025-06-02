@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Country.css";
-const Country = ({ country }) => {
+const Country = ({ country, handleVisitedCountry }) => {
   const { name, flags, population, area } = country;
 
   const [visited, setVisited] = useState(false);
@@ -10,16 +10,20 @@ const Country = ({ country }) => {
   };
 
   return (
-    <div className="country">
+    <div className={`country ${visited && "visited"}`}>
       <h4>Name: {name.common}</h4>
       <img src={flags.png} alt="" />
       <p>Population: {population}</p>
       <p>Area: {area}</p>
+      <button onClick={() => handleVisitedCountry(country)}>
+        Mark visited
+      </button>
+      <br />
       <button onClick={handleVisit}>
         {!visited ? "add to visit" : "remove from visit"}
       </button>
       <br />
-      {visited ? "Visited" : "not visited"}
+      <p>{visited ? "Visited" : "not visited"}</p>
     </div>
   );
 };
